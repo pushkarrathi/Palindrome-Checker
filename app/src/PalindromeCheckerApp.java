@@ -4,7 +4,7 @@ public class PalindromeCheckerApp {
     /**
      MAIN CLASS: UseCase1PalindromeApp
 
-     Use Case 2: Hardcoded Palindrome Validation
+     Use Case 2: Reverse Palindrome Validation
 
      Description:
      This class demonstrates basic palindrome validation
@@ -19,11 +19,11 @@ public class PalindromeCheckerApp {
      before using advanced data structures.
 
      @author Pushkar Rathi
-     @version 2.0
+     @version 3.0
      */
     public static void main(String[] args) {
         System.out.println("Welcome to Palindrome Checker App");
-        System.out.println("Version: 2.0");
+        System.out.println("Version: 3.0");
         System.out.println("System initialised successfully.");
         System.out.println("--------------------------------------------");
         System.out.println("Enter string to check if palindrome: ");
@@ -35,10 +35,14 @@ public class PalindromeCheckerApp {
             System.out.println(s+" is not a palindrome");
     }
     public static boolean checkPalindrome(String s){
-        char[] arr = new char[s.length()];
+        char[] arr;
         arr = s.toCharArray();
+        char[] rev = new char[s.length()];
+        for (int i = 0; i < s.length(); i++) {
+            rev[i] = arr[s.length()-i-1];
+        }
         for (int i = 0; i < s.length()/2; i++) {
-            if (arr[i] == arr[s.length()-i-1])
+            if (arr[i] == rev[i])
                 continue;
             else
                 return false;
