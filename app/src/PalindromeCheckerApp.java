@@ -37,13 +37,13 @@ public class PalindromeCheckerApp {
     public static boolean checkPalindrome(String s){
         char[] arr;
         arr = s.toCharArray();
-        char[] rev = new char[s.length()];
-        for (int i = 0; i < s.length(); i++) {
-            rev[i] = arr[s.length()-i-1];
-        }
-        for (int i = 0; i < s.length()/2; i++) {
-            if (arr[i] == rev[i])
-                continue;
+        int start = 0;
+        int end = s.length()-1;
+        while (start<end){
+            if (arr[start] == arr[end]) {
+                start++;
+                end--;
+            }
             else
                 return false;
         }
