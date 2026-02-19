@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Stack;
 
 public class PalindromeCheckerApp {
     /**
@@ -35,15 +36,13 @@ public class PalindromeCheckerApp {
             System.out.println(s+" is not a palindrome");
     }
     public static boolean checkPalindrome(String s){
-        char[] arr;
-        arr = s.toCharArray();
-        int start = 0;
-        int end = s.length()-1;
-        while (start<end){
-            if (arr[start] == arr[end]) {
-                start++;
-                end--;
-            }
+        Stack<Character> stc = new Stack<>();
+        for (char c: s.toCharArray())
+            stc.push(c);
+
+        for (char c: s.toCharArray()){
+            if (c == stc.pop())
+                continue;
             else
                 return false;
         }
