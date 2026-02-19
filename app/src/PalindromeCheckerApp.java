@@ -22,11 +22,11 @@ public class PalindromeCheckerApp {
      before using advanced data structures.
 
      @author Pushkar Rathi
-     @version 3.0
+     @version 6.0
      */
     public static void main(String[] args) {
         System.out.println("Welcome to Palindrome Checker App");
-        System.out.println("Version: 3.0");
+        System.out.println("Version: 6.0");
         System.out.println("System initialised successfully.");
         System.out.println("--------------------------------------------");
         System.out.println("Enter string to check if palindrome: ");
