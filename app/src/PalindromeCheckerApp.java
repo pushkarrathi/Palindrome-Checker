@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -36,12 +38,14 @@ public class PalindromeCheckerApp {
             System.out.println(s+" is not a palindrome");
     }
     public static boolean checkPalindrome(String s){
+        Queue<Character> que = new LinkedList<>();
         Stack<Character> stc = new Stack<>();
-        for (char c: s.toCharArray())
+        for (char c: s.toCharArray()) {
             stc.push(c);
-
+            que.add(c);
+        }
         for (char c: s.toCharArray()){
-            if (c == stc.pop())
+            if (que.remove() == stc.pop())
                 continue;
             else
                 return false;
