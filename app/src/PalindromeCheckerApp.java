@@ -4,7 +4,7 @@ public class PalindromeCheckerApp {
     /**
      MAIN CLASS: UseCase1PalindromeApp
      This use case introduces fundamental comparison logic
-     before using advanced data structures.
+     before using advanced data structure.
 
      @author Pushkar Rathi
      @version 1.0
