@@ -4,7 +4,7 @@ public class PalindromeCheckerApp {
     /**
      MAIN CLASS: UseCase1PalindromeApp
 
-     Use Case 12: Interface Strategy
+     Use Case 13: Time Implementation
 
      Description:
      This class demonstrates basic palindrome validation
@@ -16,11 +16,11 @@ public class PalindromeCheckerApp {
      -Displays the result on the console
 
      @author Pushkar Rathi
-     @version 12.0
+     @version 13.0
      */
     public static void main(String[] args) {
         System.out.println("Welcome to Palindrome Checker App");
-        System.out.println("Version: 12.0");
+        System.out.println("Version: 13.0");
         System.out.println("System initialised successfully.");
         System.out.println("--------------------------------------------");
         System.out.println("Enter string to check if palindrome: ");
