@@ -4,7 +4,7 @@ public class PalindromeCheckerApp {
     /**
      MAIN CLASS: UseCase1PalindromeApp
 
-     Use Case 7: Deque based traversal
+     Use Case 8: LinkedList based traversal
 
      Description:
      This class demonstrates basic palindrome validation
@@ -16,11 +16,11 @@ public class PalindromeCheckerApp {
      -Displays the result on the console
 
      @author Pushkar Rathi
-     @version 7.0
+     @version 8.0
      */
     public static void main(String[] args) {
         System.out.println("Welcome to Palindrome Checker App");
-        System.out.println("Version: 7.0");
+        System.out.println("Version: 8.0");
         System.out.println("System initialised successfully.");
         System.out.println("--------------------------------------------");
         System.out.println("Enter string to check if palindrome: ");
@@ -32,12 +32,12 @@ public class PalindromeCheckerApp {
             System.out.println(s+" is not a palindrome");
     }
     public static boolean checkPalindrome(String s){
-        Deque<Character> dq = new ArrayDeque<>();
+        LinkedList<Character> list = new LinkedList<>();
         for (char c: s.toCharArray()) {
-            dq.add(c);
+            list.add(c);
         }
-        while (dq.size() > 1){
-            if (dq.removeFirst() == dq.removeLast())
+        while (list.size() > 1){
+            if (list.removeFirst() == list.removeLast())
                 continue;
             else
                 return false;
