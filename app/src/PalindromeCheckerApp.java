@@ -4,7 +4,7 @@ public class PalindromeCheckerApp {
     /**
      MAIN CLASS: UseCase1PalindromeApp
 
-     Use Case 11: Case Insensitive and space ignorant
+     Use Case 12: Interface Strategy
 
      Description:
      This class demonstrates basic palindrome validation
@@ -16,27 +16,34 @@ public class PalindromeCheckerApp {
      -Displays the result on the console
 
      @author Pushkar Rathi
-     @version 10.0
+     @version 12.0
      */
     public static void main(String[] args) {
         System.out.println("Welcome to Palindrome Checker App");
-        System.out.println("Version: 10.0");
+        System.out.println("Version: 12.0");
         System.out.println("System initialised successfully.");
         System.out.println("--------------------------------------------");
         System.out.println("Enter string to check if palindrome: ");
         Scanner sc = new Scanner(System.in);
         String s = sc.nextLine();
         String changed = s.toLowerCase();
+        PalindromeStrategy strategy = new StackStrategy();
         int start = 0;
         int end = changed.length()-1;
-        if(PalindromeService.checkPalindrome(changed,start,end))
+        if(strategy.checkPalindrome(changed,start,end))
             System.out.println(s+" is a palindrome");
         else
             System.out.println(s+" is not a palindrome");
     }
 }
-class PalindromeService {
-    public static boolean checkPalindrome(String changed, int start, int end){
+
+interface PalindromeStrategy{
+    boolean checkPalindrome(String changed, int start, int end);
+}
+
+class StackStrategy implements PalindromeStrategy{
+    @Override
+    public boolean checkPalindrome(String changed, int start, int end){
         Stack<Character> stc = new Stack<>();
         for (char c:changed.toCharArray()) stc.push(c);
         while (start < end){
