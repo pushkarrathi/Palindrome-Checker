@@ -1,13 +1,10 @@
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Scanner;
-import java.util.Stack;
+import java.util.*;
 
 public class PalindromeCheckerApp {
     /**
      MAIN CLASS: UseCase1PalindromeApp
 
-     Use Case 2: Reverse Palindrome Validation
+     Use Case 7: Deque based traversal
 
      Description:
      This class demonstrates basic palindrome validation
@@ -18,15 +15,12 @@ public class PalindromeCheckerApp {
      -Determines whether the string is a palindrome
      -Displays the result on the console
 
-     This use case introduces fundamental comparison logic
-     before using advanced data structures.
-
      @author Pushkar Rathi
-     @version 6.0
+     @version 7.0
      */
     public static void main(String[] args) {
         System.out.println("Welcome to Palindrome Checker App");
-        System.out.println("Version: 6.0");
+        System.out.println("Version: 7.0");
         System.out.println("System initialised successfully.");
         System.out.println("--------------------------------------------");
         System.out.println("Enter string to check if palindrome: ");
@@ -38,14 +32,12 @@ public class PalindromeCheckerApp {
             System.out.println(s+" is not a palindrome");
     }
     public static boolean checkPalindrome(String s){
-        Queue<Character> que = new LinkedList<>();
-        Stack<Character> stc = new Stack<>();
+        Deque<Character> dq = new ArrayDeque<>();
         for (char c: s.toCharArray()) {
-            stc.push(c);
-            que.add(c);
+            dq.add(c);
         }
-        for (char c: s.toCharArray()){
-            if (que.remove() == stc.pop())
+        while (dq.size() > 1){
+            if (dq.removeFirst() == dq.removeLast())
                 continue;
             else
                 return false;
