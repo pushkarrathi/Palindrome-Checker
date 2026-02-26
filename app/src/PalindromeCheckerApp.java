@@ -4,7 +4,7 @@ public class PalindromeCheckerApp {
     /**
      MAIN CLASS: UseCase1PalindromeApp
 
-     Use Case 9: Recursive comparison
+     Use Case 10: Case Insensitive and space ignorant
 
      Description:
      This class demonstrates basic palindrome validation
@@ -16,29 +16,32 @@ public class PalindromeCheckerApp {
      -Displays the result on the console
 
      @author Pushkar Rathi
-     @version 9.0
+     @version 10.0
      */
     public static void main(String[] args) {
         System.out.println("Welcome to Palindrome Checker App");
-        System.out.println("Version: 9.0");
+        System.out.println("Version: 10.0");
         System.out.println("System initialised successfully.");
         System.out.println("--------------------------------------------");
         System.out.println("Enter string to check if palindrome: ");
         Scanner sc = new Scanner(System.in);
-        String s = sc.next();
+        String s = sc.nextLine();
+        String changed = s.toLowerCase();
         int start = 0;
-        int end = s.length();
-        if(checkPalindrome(s,start,end))
+        int end = changed.length()-1;
+        if(checkPalindrome(changed,start,end))
             System.out.println(s+" is a palindrome");
         else
             System.out.println(s+" is not a palindrome");
     }
-    public static boolean checkPalindrome(String s, int start, int end){
+    public static boolean checkPalindrome(String changed, int start, int end){
         while (start < end){
-            if (s.charAt(start) == s.charAt(end-1)) {
+            if (changed.charAt(start) == ' ') start++;
+            if (changed.charAt(end) == ' ') end--;
+            if (changed.charAt(start) == changed.charAt(end)) {
                 start++;
                 end--;
-                checkPalindrome(s,start,end);
+                checkPalindrome(changed,start,end);
             }
             else
                 return false;
