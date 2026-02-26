@@ -4,7 +4,7 @@ public class PalindromeCheckerApp {
     /**
      MAIN CLASS: UseCase1PalindromeApp
 
-     Use Case 10: Case Insensitive and space ignorant
+     Use Case 11: Case Insensitive and space ignorant
 
      Description:
      This class demonstrates basic palindrome validation
@@ -29,19 +29,20 @@ public class PalindromeCheckerApp {
         String changed = s.toLowerCase();
         int start = 0;
         int end = changed.length()-1;
-        if(checkPalindrome(changed,start,end))
+        if(PalindromeService.checkPalindrome(changed,start,end))
             System.out.println(s+" is a palindrome");
         else
             System.out.println(s+" is not a palindrome");
     }
+}
+class PalindromeService {
     public static boolean checkPalindrome(String changed, int start, int end){
+        Stack<Character> stc = new Stack<>();
+        for (char c:changed.toCharArray()) stc.push(c);
         while (start < end){
-            if (changed.charAt(start) == ' ') start++;
-            if (changed.charAt(end) == ' ') end--;
-            if (changed.charAt(start) == changed.charAt(end)) {
+            if (changed.charAt(start) == stc.pop()) {
                 start++;
                 end--;
-                checkPalindrome(changed,start,end);
             }
             else
                 return false;
